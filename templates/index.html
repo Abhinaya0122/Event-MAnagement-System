@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loading...</title>
+  <link rel="icon" href="static/favicon.ico" type="image/x-icon">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      background: #fff;
+
+    }
+    .main{
+      padding-left: 6%;
+      padding-top: 28%;
+    }
+    h1{
+      color: #0955ce;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+      padding: 20px; /* Add padding to the container */
+    }
+    p{
+     /* Font size */
+      line-height: 1.5;  /* Line height, here it is 2 times the font size */
+      font-family: sans-serif;
+    }
+
+    .card {
+      background-color: #fff;
+      border-radius: 5px;
+      padding: 15px;
+      box-shadow: 0 2px 5px hsla(0, 13%, 3%, 0.1);
+      width: 300px;
+    }
+    .pic{
+      height: 100vh;
+      width: 100%;
+      background-repeat: no-repeat;
+      background-image: url('/static/bg.png');
+      background-size: cover;
+    }
+    .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns with equal width */
+            gap: 10px; /* Space between the divs */
+        }
+  </style>
+</head>
+<body>
+  <div class="container">
+  <div class="main">
+    <h1>Welcome to Kongu Engineering College</h1>
+    <p>This webpage is designed to simplify Event management by providing a streamlined, efficient, and user-friendly platform for both faculty and students.</p>
+    
+    <h3>Are you admin? <a href="/faculty">Login_Here</a></h3>
+    
+    
+    <h3>Are you Student? <a href="/student">Login_Here</a></h3>
+    
+  </div>
+  <div class="pic">
+  </div>
+</div>
+</a>
+ 
+</body>
+</html>

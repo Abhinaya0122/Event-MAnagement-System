@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Home</title>
+    <style>
+        /* General Styles */
+body {
+    font-family: Arial, sans-serif; /* Font for the body */
+    background-color: #f8f9fa; /* Light gray background */
+    color: #343a40; /* Dark text color */
+    margin: 0;
+    padding: 20px;
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 2.5rem; /* Size of the main heading */
+    margin-bottom: 20px; /* Space below the heading */
+}
+
+/* Link Styles */
+a {
+    display: inline-block; /* Make the links block-level elements */
+    padding: 10px 15px; /* Padding for the links */
+    margin-right: 15px; /* Space between links */
+    text-decoration: none; /* Remove underline from links */
+    color: #007bff; /* Bootstrap primary color */
+    background-color: #ffffff; /* White background for links */
+    border: 1px solid #007bff; /* Border to match the link color */
+    border-radius: 4px; /* Rounded corners */
+    transition: background-color 0.3s, color 0.3s; /* Transition effect */
+}
+
+/* Link Hover Effects */
+a:hover {
+    background-color: #007bff; /* Change background on hover */
+    color: white; /* Change text color on hover */
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem; /* Smaller heading size on small screens */
+    }
+
+    a {
+        font-size: 0.9rem; /* Smaller font size for links on small screens */
+        padding: 8px 12px; /* Adjust padding for smaller screens */
+    }
+}
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Student Portal</h1>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    <a href="{{ url_for('register_event') }}">Register for an Event</a> <!-- Link to Registration Page -->
+
+    <!-- Other content -->
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event List</title>
+    <style>
+        /* styles.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light background for contrast */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff; /* Bootstrap primary color */
+    margin: 10px 0;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Event List Styles */
+.event-list {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background for event container */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.event-list ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0;
+}
+
+.event-list li {
+    border-bottom: 1px solid #dee2e6; /* Light border for separation */
+    padding: 15px 0; /* Spacing between events */
+}
+
+.event-list li:last-child {
+    border-bottom: none; /* Remove border for the last item */
+}
+
+.event-list h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #343a40; /* Darker text color for headings */
+}
+
+.event-list p {
+    margin: 5px 0; /* Space between paragraphs */
+    color: #6c757d; /* Muted text color for details */
+}
+
+    </style>
+</head>
+<body>
+    <h1>Events</h1>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+    <div class="event-list">
+        {% if events %}
+            <ul>
+                {% for event in events %}
+                    <li>
+                        <h2>{{ event['event_name'] }}</h2> <!-- Replace 'event_name' with the actual column name -->
+                        <p>Date: {{ event['event_date'] }}</p> <!-- Replace 'event_date' with the actual column name -->
+                        <p>Description: {{ event['event_description'] }}</p> <!-- Replace 'event_description' with the actual column name -->
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No events found.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

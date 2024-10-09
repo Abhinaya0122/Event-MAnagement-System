@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management System</title>
+    <style>
+        /* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+/* Header */
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header .logo h1 {
+    font-size: 24px;
+}
+
+header nav ul {
+    list-style: none;
+    display: flex;
+}
+
+header nav ul li {
+    margin-left: 20px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+header nav ul li a:hover {
+    color: #f0a500;
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://images.unsplash.com/photo-1518066000714-58c45f1a2c0a?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8MTZ8fHxlbnwwfHx8fHw%3D') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    text-align: center;
+    height: 90vh;
+    position: relative;
+}
+
+.hero-content h1 {
+    font-size: 40px;
+    margin-bottom: 1rem;
+}
+
+.hero-content p {
+    font-size: 20px;
+    margin-bottom: 2rem;
+}
+
+.hero-buttons a {
+    margin-right: 10px;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.btn-primary {
+    background-color: #f0a500;
+}
+
+.btn-secondary {
+    background-color: #333;
+}
+
+.search-bar {
+    margin-top: 20px;
+}
+
+.search-bar input {
+    padding: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.search-bar button {
+    padding: 10px 20px;
+    border: none;
+    background-color: #f0a500;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Upcoming Events */
+.upcoming-events {
+    padding: 2rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+.upcoming-events h2 {
+    margin-bottom: 1.5rem;
+}
+
+.event-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.event-card {
+    background-color: #f4f4f4;
+    padding: 1rem;
+    border-radius: 5px;
+    width: 30%;
+    text-align: center;
+}
+
+.event-card h3 {
+    margin-bottom: 1rem;
+}
+
+.event-card p {
+    margin-bottom: 0.5rem;
+}
+
+/* Features Section */
+.features {
+    padding: 2rem;
+    background-color: #e8e8e8;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 1.5rem;
+}
+
+.feature-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.feature-item {
+    width: 22%;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.feature-item h3 {
+    margin-bottom: 1rem;
+}
+
+/* Categories Section */
+.categories {
+    padding: 2rem;
+    text-align: center;
+}
+
+.categories h2 {
+    margin-bottom: 1.5rem;
+}
+
+.category-list {
+    display: flex;
+    justify-content: space-around;
+}
+
+.category-item {
+    width: 22%;
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+/* Testimonials Section */
+.testimonials {
+    padding: 2rem;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.testimonial-list {
+    display: flex;
+    justify-content: center;
+}
+
+.testimonial-item {
+    width: 30%;
+    margin: 0 1rem;
+}
+
+.testimonial-item p {
+    font-style: italic;
+    margin-bottom: 1rem;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 2rem;
+    text-align: center;
+}
+
+.footer-links a {
+    color: #fff;
+    margin-right: 20px;
+    text-decoration: none;
+}
+
+.footer-links a:hover {
+    color: #f0a500;
+}
+
+.social-media a {
+    color: #fff;
+    margin-right: 15px;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    color: #f0a500;
+}
+/* Event Creation Form Styles */
+.event-creation {
+    max-width: 600px; /* Limit the width of the form */
+    margin: 50px auto; /* Center the form vertically */
+    padding: 20px; /* Add padding inside the form */
+    background-color: white; /* Set background color to white */
+    border-radius: 8px; /* Round corners of the form */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+}
+
+/* Form Heading */
+.event-creation h2 {
+    margin-bottom: 20px; /* Space below the heading */
+    text-align: center; /* Center the heading */
+}
+
+/* Form Labels */
+.event-creation label {
+    display: block; /* Make labels block elements */
+    margin-bottom: 5px; /* Space between label and input */
+    font-weight: bold; /* Make labels bold */
+}
+
+/* Form Inputs */
+.event-creation input[type="text"],
+.event-creation input[type="date"],
+.event-creation input[type="time"],
+.event-creation input[type="file"],
+.event-creation textarea {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside inputs */
+    margin-bottom: 15px; /* Space below each input */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+}
+
+/* Textarea */
+.event-creation textarea {
+    resize: vertical; /* Allow vertical resizing */
+}
+
+/* Submit Button */
+.event-creation button {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside button */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    background-color: #f0a500; /* Primary button color */
+    color: white; /* Text color */
+    font-size: 16px; /* Font size */
+    cursor: pointer; /* Pointer cursor on hover */
+}
+
+.event-creation button:hover {
+    background-color: #d18c00; /* Darker shade on hover */
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>EventHub</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Events</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a href="#">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Your Hub for Seamless Event Management</h1>
+            <p>Plan, manage, and promote your events with ease.</p>
+            <div class="hero-buttons">
+                <a href="/event" class="btn-primary">Create an Event</a>
+                <a href="/events" class="btn-secondary">Explore Events</a>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for events...">
+                <button>Search</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

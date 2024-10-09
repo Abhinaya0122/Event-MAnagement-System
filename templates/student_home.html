@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Home</title>
+    <style>
+        /* styles.css */
+
+/* Registration Form Styles */
+.registration-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff; /* White background for form */
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+.registration-form h2 {
+    margin-bottom: 20px;
+    color: #343a40; /* Darker text color */
+}
+
+.registration-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.registration-form input, .registration-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ced4da; /* Light border */
+    border-radius: 4px; /* Rounded corners */
+}
+
+.registration-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    border: none;
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer;
+}
+
+.registration-form button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.message {
+    color: green; /* Success message color */
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <h1>Welcome to the Student Portal</h1>
+    <a href="{{ url_for('dashboard') }}">Back to Dashboard</a>
+
+    <div class="registration-form">
+        <h2>Register for an Event</h2>
+        {% if message %}
+            <p class="message">{{ message }}</p>
+        {% endif %}
+        <form method="POST">
+            <label for="event_id">Select Event:</label>
+            <select id="event_id" name="event_id" required>
+                <!-- Replace with dynamic event options -->
+                <option value="">--Select an Event--</option>
+                {% for event in events %}
+                    <option value="{{ event['id'] }}">{{ event['event_name'] }}</option> <!-- Replace 'id' and 'event_name' with your actual column names -->
+                {% endfor %}
+            </select>
+
+            <label for="student_id">Your Student ID:</label>
+            <input type="text" id="student_id" name="student_id" required>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
